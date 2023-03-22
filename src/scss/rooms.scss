@@ -1,0 +1,210 @@
+.rooms {
+    background: #fcf8f3;
+    @include adaptive-value("padding-top", 44, 33, 1);
+    @include adaptive-value("padding-bottom", 44, 33, 1);
+
+    &__container {
+
+        @media (min-width: #{$md2 + px}) {
+            display: flex;
+        }
+    }
+
+    &__body {
+        flex: 0 0 465 / 1240 * 100%;
+        position: relative;
+        z-index: 5;
+        align-self: center;
+        @media (min-width: #{$md2 + px}) {
+            @include adaptive-value("padding-right", 80, 30, 1)
+        }
+        
+        @media (max-width: #{$md2 + px}) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__title {
+        text-align: left;
+        &:not(:last-child) {
+            margin: 0px 0px 8px / 40px * 1em 0px;
+        }
+    }
+
+    &__text {
+        line-height: 150%;
+        font-weight: 500;
+        &:not(:last-child) {
+            margin: 0px 0px 24px 0px;
+        }
+    }
+
+    &__button {
+        background: $orangeColor;
+        color: #fff;
+        min-width: 180px;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background: darken($orangeColor, 10%);
+            }
+        }
+    }
+
+    &__slider {
+        flex: 1 1 auto;
+        min-width: 0;
+        align-self: flex-start;
+
+        @media (max-width: #{$md4 + px}) {
+            margin: 0 -15px;
+        }
+    }
+}
+
+.slider-rooms {
+    position: relative;
+    
+    &__body {
+        overflow: visible;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100vw;
+            z-index: 2;
+            background-color: #fcf8f3;
+            transform: translate(-100%, 0);
+        }
+     }
+
+    &__slide {
+        width: 372px;
+        position: relative;
+        overflow: hidden;
+        @include adaptive-value("min-height", 585, 400, 1);
+
+        &.swiper-slide-active {
+            .slider-rooms__image {
+                // height: 100%;
+                padding-bottom: 585px;
+            }
+        }
+
+        @media (max-width: #{$md4 + px}) {
+            width: 100%;
+        }
+
+    }
+
+    &__image {
+        height: 100%;
+        padding-bottom: 585px;
+        // transition: all .3s ease 0s;
+        @media (min-width: #{$md3 + px}) {
+            height: 83%;
+            padding-bottom: 485px;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        color: inherit;
+        max-width: 240px;
+        @include adaptive-value("left", 24, 15, 1);
+        @include adaptive-value("bottom", 24, 15, 1);
+        @include adaptive-value("padding", 32, 15, 1);
+
+        background: rgba(255, 255, 255, 0.72);
+
+        //Если браузер поддерживает backdrop-filter
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(31px);
+        }
+
+        &::before {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 48px;
+            height: 48px;
+            transform: translate(100%, 0);
+            background: $orangeColor;
+            color: #fff;    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__label {
+
+    }
+
+    &__title {
+        font-weight: 600;
+        font-family: Gilroy;
+        @include adaptive-value("font-size", 28, 24, 1)
+    }
+
+    &__arrows {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        width: calc(100% - 48px);
+        left: 24px;
+        z-index: 5;
+        transform: translate(0px, -50%);
+        justify-content: space-between;
+
+        @media (min-width: #{$md1 + px}) {
+            width: calc(100% + 48px);
+            left: -24px;
+        }
+    }
+
+    &__dotts {
+
+        @media (min-width: #{$md3 + px}) {
+            position: absolute;
+            left: 396px !important;
+            bottom: 30px !important;
+            width: 100% !important;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            justify-content: center;
+            margin-top: 15px;
+        }
+    }
+}
+
+.label-slide {
+    display: grid;
+    grid-template-columns: auto 27px auto;
+    gap: 8px;
+    justify-content: start;
+    align-items: center;
+    color: $darkGrayColor;
+    &:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
+    &__number {
+
+    }
+
+    &__line {
+        height: 1px;
+        background-color: $darkGrayColor;
+    }
+
+    &__text {
+
+    }
+}

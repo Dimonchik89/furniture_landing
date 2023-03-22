@@ -1,0 +1,224 @@
+.footer {
+
+    &__container {
+
+    }
+
+    &__body {
+        border-top: 1px solid #d8d8d8;
+        display: grid;
+        grid-template-columns: 250px 1fr 290px;
+        column-gap: 80px;
+        padding-top: 80px;
+        padding-bottom: 60px;
+
+        @media (max-width: #{$md2 + px}) {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            column-gap: 0;
+            display: block;
+        }
+
+        @media (max-width: #{$md1 + px}) {
+            grid-template-rows: auto auto;
+            grid-template-columns: 1fr 290px;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (max-width: #{$md1 + px}) {
+            grid-column: span 2;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: #{$md2 + px}) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__logo {
+        margin: 0px 0px 16px/24px * 1em 0px;
+
+    }
+
+    &__text {
+        color: $grayColor;
+        line-height: 150%;
+        &:not(:last-child) {
+            margin: 0px 0px 1em 0px;
+        }
+    }
+
+    &__contacts {
+
+    }
+
+    &__menu {
+        @media (max-width: #{$md2 + px}) {
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__subscribe {
+
+    }
+}
+
+.contacts-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        color: $grayColor;
+        line-height: 150%;
+        transition: color .3s ease 0s;
+
+        &::before {
+            margin: 0px 8px 0px 0px ;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+
+            @media (max-width: #{$md3 + px}) {
+                margin-bottom: 10px;
+            }
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $orangeColor;
+                }
+            }
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: Gilroy;
+        }
+    }
+}
+
+.menu-footer {
+    @media (min-width: #{$md3 + px}) {
+        display: flex;
+    }
+    
+    &__column {
+        @media (min-width: #{$md3 + px}) {
+            flex: 0 1 33.333%;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: #{$md4 + px}) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__title {
+        cursor: default;
+
+        @media (min-width: #{$md3 + px}) {
+            margin: 0px 0px 16px/24px * 1em 0px;
+        }
+
+        ._init &{
+            display: flex;
+            width: 100%;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            // @extend ._icon-arrow-down;
+            // &::before {
+            //     @extend %ic;
+            //     font-size: 14px;
+            // }
+        }
+    }
+
+    &__list {
+        li {
+            &:not(:last-child) {
+                margin: 0px 0px 15px 0px;
+            }
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            padding-top: 15px;
+            display: none;
+        }
+    }
+
+    &__link {
+        color: $darkGrayColor;
+        transition: color 0.3s ease 0s;
+        line-height: 120%;
+        font-weight: 500;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $orangeColor;
+            }
+        }
+    }
+}
+
+.subscribe {
+
+    &__title {
+        margin: 0px 0px 16px/24px * 1em 0px;
+    }
+
+    &__form {
+        display: flex;
+        position: relative;
+
+        .form__error {
+            position: absolute;
+            top: 100%;
+            margin: 3px 0px 0px 0px;
+            left: 12px;
+            color: red;
+            font-size: 12px ;
+        }
+    }
+
+    &__button {
+        flex: 0 0 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        background-color: $orangeColor;
+        color: #fff;
+        margin: 0px 0px 0px 4px;
+        transition: all .3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: darken($orangeColor, 10%);
+            }
+        }
+    }
+
+    &__input {
+        width: 100%;
+        padding: 0px 12px;
+        background-color: #f4f5f7;
+        color: #828282;
+    }
+}
